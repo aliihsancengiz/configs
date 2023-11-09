@@ -1,5 +1,8 @@
 "Lader
 let mapleader="\<Space>"
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :FloatermKill<CR>:q<CR>
+
 
 set encoding=UTF-8
 colorscheme anotherdark
@@ -97,16 +100,12 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 
-" ft
-" Configuration example
+" floating terminal
 let g:floaterm_keymap_new = '<F7>'
 let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
-let g:floaterm_keyman_kill   = '<F10>'
 let g:floaterm_keymap_toggle = '<C-\>'
 
-"nnoremap   <silent>   <C-/>   :FloatermToggle<CR>
-"tnoremap   <silent>   <C-/>   <C-\><C-n>:FloatermToggle<CR>
 
 " COC - START
 
