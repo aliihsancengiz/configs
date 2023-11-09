@@ -50,7 +50,6 @@ nnoremap <Leader>0 :10b<CR>
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 
-
 " #Better tab experience - from https://webdevetc.com/
 map <leader>tn :tabnew<CR>
 map <leader>t<leader> :tabnext<CR>
@@ -58,8 +57,8 @@ map <leader>tm :tabmove<CR>
 map <leader>tc :tabclose<CR>
 map <leader>to :tabonly<CR>
 
+
 """ Nerdtree i START
-nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -105,6 +104,10 @@ let g:floaterm_keymap_new = '<F7>'
 let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_toggle = '<C-\>'
+
+
+nnoremap <C-c> :Commentary<CR>
+vnoremap <C-c> :Commentary<CR>
 
 
 " COC - START
@@ -234,6 +237,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Floating terminal
 Plug 'voldikss/vim-floaterm'
+
+" Comment 
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
