@@ -1,11 +1,114 @@
-" Leader
+"Lader
 let mapleader="\<Space>"
 
 set encoding=UTF-8
 colorscheme anotherdark
 set number
 
+" *** Search Option ***
+set smartcase
+set ignorecase
+set wrapscan
+set hlsearch
+set incsearch
+" set nohlsearch
 
+
+" Moving lines
+nnoremap <c-j> :m .+1<CR>==
+nnoremap <c-k> :m .-2<CR>==
+inoremap <c-j> <Esc>:m .+1<CR>==gi
+inoremap <c-k> <Esc>:m .-2<CR>==gi
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
+
+
+" Mappings to access buffers (don't use "\p" because a
+" " delay before pressing "p" would accidentally paste).
+" " \l       : list buffers
+" " \b \f \g : go back/forward/last-used
+" " \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>c :bdelete<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+" " It's useful to show the buffer number in the status line.
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+
+
+" #Better tab experience - from https://webdevetc.com/
+map <leader>tn :tabnew<CR>
+map <leader>t<leader> :tabnext<CR>
+map <leader>tm :tabmove<CR>
+map <leader>tc :tabclose<CR>
+map <leader>to :tabonly<CR>
+
+""" Nerdtree i START
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeMapOpenInTab='\r'
+
+" " Refresh the current folder if any changes
+autocmd BufEnter NERD_tree_* | execute 'normal R'
+au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
+"
+" "Reload the window if directory is changed
+augroup DIRCHANGE
+   au!
+   autocmd DirChanged global :NERDTreeCWD
+augroup END
+
+"Close nerdtree automatically if it is theonly window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+""" Nerdtree - END
+
+""" Fzf - START
+" Search in Git files
+nnoremap <C-p> :GFiles<CR>
+
+"Search with Ag
+nnoremap <C-g> :Ag<Cr>
+
+""" Fzf - END
+
+
+" Syntac highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
+
+
+" ft
+" Configuration example
+let g:floaterm_keymap_new = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keyman_kill   = '<F10>'
+let g:floaterm_keymap_toggle = '<C-\>'
+
+"nnoremap   <silent>   <C-/>   :FloatermToggle<CR>
+"tnoremap   <silent>   <C-/>   <C-\><C-n>:FloatermToggle<CR>
+
+" COC - START
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
@@ -50,108 +153,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-
-
-
 "let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
-
-" *** Search Option ***
-set smartcase
-set ignorecase
-set wrapscan
-set hlsearch
-set incsearch
-" set nohlsearch
-
-
-" Moving lines
-nnoremap <c-j> :m .+1<CR>==
-nnoremap <c-k> :m .-2<CR>==
-inoremap <c-j> <Esc>:m .+1<CR>==gi
-inoremap <c-k> <Esc>:m .-2<CR>==gi
-vnoremap <c-j> :m '>+1<CR>gv=gv
-vnoremap <c-k> :m '<-2<CR>gv=gv
-
-" Mappings to access buffers (don't use "\p" because a
-" " delay before pressing "p" would accidentally paste).
-" " \l       : list buffers
-" " \b \f \g : go back/forward/last-used
-" " \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>c :bdelete<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
-" " It's useful to show the buffer number in the status line.
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-
-
-" #Better tab experience - from https://webdevetc.com/
-map <leader>tn :tabnew<CR>
-map <leader>t<leader> :tabnext<CR>
-map <leader>tm :tabmove<CR>
-map <leader>tc :tabclose<CR>
-map <leader>to :tabonly<CR>
-
-""" Nerd tr e i START
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-let NERDTreeMapOpenInTab='\r'
-
-" Open nerdtree window on opening Vim
-"autocmd VimEnter * NERDTree
-
-"
-" " Refresh the current folder if any changes
-autocmd BufEnter NERD_tree_* | execute 'normal R'
-au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
-"
-" "Reload the window if directory is changed
-augroup DIRCHANGE
-   au!
-   autocmd DirChanged global :NERDTreeCWD
-augroup END
-
-"Close nerdtree automatically if it is theonly window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
- 
-""" Nerd tree - END
-
-""" Fzf - START
-" Search in Git files
-nnoremap <C-p> :GFiles<CR>
-
-"Search with Ag
-nnoremap <C-g> :Ag<Cr>
-
-""" Fzf - END
-
-
-" Syntac highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
-
-
+" COC - END
 
 
 call plug#begin()
@@ -228,6 +232,9 @@ Plug 'bling/vim-bufferline'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Floating terminal
+Plug 'voldikss/vim-floaterm'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
