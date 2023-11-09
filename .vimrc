@@ -58,6 +58,20 @@ map <leader>tc :tabclose<CR>
 map <leader>to :tabonly<CR>
 
 
+" Moving between panes
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>u <C-w>p
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>w :vertical resize 125<CR>
+
+" *** Windows Resizing ***
+nnoremap < :vertical resize +5<CR>
+nnoremap > :vertical resize -5<CR>
+
+
 """ Nerdtree i START
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -105,7 +119,7 @@ let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_toggle = '<C-\>'
 
-
+" Commenting
 nnoremap <C-c> :Commentary<CR>
 vnoremap <C-c> :Commentary<CR>
 
