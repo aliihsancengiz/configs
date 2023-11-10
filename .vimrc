@@ -16,6 +16,20 @@ set hlsearch
 set incsearch
 " set nohlsearch
 
+" Ctrl+h to stop searching
+vnoremap <C-h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
+
+nnoremap <c-l> <Esc>
+inoremap <c-l> <Esc>
+vnoremap <c-l> <Esc>
+snoremap <c-l> <Esc>
+xnoremap <c-l> <Esc>
+cnoremap <c-l> <C-c>
+onoremap <c-l> <Esc>
+lnoremap <c-l> <Esc>
+tnoremap <c-l> <Esc>
+
 
 " Moving lines
 nnoremap <c-j> :m .+1<CR>==
@@ -65,18 +79,30 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>u <C-w>p
 nnoremap <leader>v :vs<CR>
-nnoremap <leader>w :vertical resize 125<CR>
 
 " *** Windows Resizing ***
 nnoremap < :vertical resize +5<CR>
 nnoremap > :vertical resize -5<CR>
 
+" No arrow keys --- force yourself to use the home row
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Left and right can switch buffers
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 """ Nerdtree i START
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeMapOpenInTab='\r'
+
+let NERDTreeShowHidden=1
 
 " " Refresh the current folder if any changes
 autocmd BufEnter NERD_tree_* | execute 'normal R'
@@ -122,6 +148,14 @@ let g:floaterm_keymap_toggle = '<C-\>'
 " Commenting
 nnoremap <C-c> :Commentary<CR>
 vnoremap <C-c> :Commentary<CR>
+
+
+" Formatting
+autocmd FileType c,cpp ClangFormatAutoEnable
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " COC - START
