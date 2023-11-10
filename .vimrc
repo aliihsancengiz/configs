@@ -255,6 +255,11 @@ Plug 'voldikss/vim-floaterm'
 " Comment 
 Plug 'tpope/vim-commentary'
 
+
+" Paranthesis matching
+Plug 'jiangmiao/auto-pairs'
+
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
