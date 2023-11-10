@@ -169,7 +169,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-"let g:lsp_document_highlight_enabled = 0
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 " COC - END
 
