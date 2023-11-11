@@ -31,6 +31,12 @@ lnoremap <c-l> <Esc>
 tnoremap <c-l> <Esc>
 
 
+" copy and paste from system clipboard
+noremap <Leader>y "*y
+nnoremap <leader>p "+gp
+vnoremap <leader>y "+y
+
+
 " Moving lines
 nnoremap <c-j> :m .+1<CR>==
 nnoremap <c-k> :m .-2<CR>==
