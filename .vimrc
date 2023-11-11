@@ -1,9 +1,7 @@
 "Leader
 let mapleader="\<Space>"
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :FloatermKill<CR>:q<CR>
 
-
+" line number and theme setup
 set encoding=UTF-8
 colorscheme anotherdark
 set number
@@ -20,6 +18,11 @@ set incsearch
 vnoremap <C-h> :nohlsearch<cr>
 nnoremap <C-h> :nohlsearch<cr>
 
+" save and quit gracefully
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :FloatermKill<CR>:q<CR>
+
+" Escape with Ctrl-l 
 nnoremap <c-l> <Esc>
 inoremap <c-l> <Esc>
 vnoremap <c-l> <Esc>
@@ -30,12 +33,10 @@ onoremap <c-l> <Esc>
 lnoremap <c-l> <Esc>
 tnoremap <c-l> <Esc>
 
-
 " copy and paste from system clipboard
 noremap <Leader>y "*y
 nnoremap <leader>p "+gp
 vnoremap <leader>y "+y
-
 
 " Moving lines
 nnoremap <c-j> :m .+1<CR>==
@@ -45,12 +46,7 @@ inoremap <c-k> <Esc>:m .-2<CR>==gi
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
 
-
-" Mappings to access buffers (don't use "\p" because a
-" " delay before pressing "p" would accidentally paste).
-" " \l       : list buffers
-" " \b \f \g : go back/forward/last-used
-" " \1 \2 \3 : go to buffer 1/2/3 etc
+" Mappings to access buffers 
 nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
@@ -66,9 +62,6 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
-" " It's useful to show the buffer number in the status line.
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 
 " #Better tab experience - from https://webdevetc.com/
 map <leader>tn :tabnew<CR>
@@ -102,12 +95,42 @@ inoremap <right> <nop>
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
+" Commenting
+nnoremap <C-c> :Commentary<CR>
+vnoremap <C-c> :Commentary<CR>
+
+" floating terminal
+let g:floaterm_keymap_new = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<C-\>'
+
+" Syntac highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
+
+" Formatting
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+autocmd FileType c,cpp ClangFormatAutoEnable
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" " It's useful to show the buffer number in the status line.
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+
 """ Nerdtree i START
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-let NERDTreeMapOpenInTab='\r'
 
+let NERDTreeMapOpenInTab='\r'
 let NERDTreeShowHidden=1
 
 " " Refresh the current folder if any changes
@@ -134,34 +157,6 @@ nnoremap <C-g> :Ag<Cr>
 """ Fzf - END
 
 
-" Syntac highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
-
-
-" floating terminal
-let g:floaterm_keymap_new = '<F7>'
-let g:floaterm_keymap_prev   = '<F8>'
-let g:floaterm_keymap_next   = '<F9>'
-let g:floaterm_keymap_toggle = '<C-\>'
-
-" Commenting
-nnoremap <C-c> :Commentary<CR>
-vnoremap <C-c> :Commentary<CR>
-
-
-" Formatting
-autocmd FileType c,cpp ClangFormatAutoEnable
-nmap <Leader>C :ClangFormatAutoToggle<CR>
-
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " COC - START
@@ -218,14 +213,6 @@ let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 
 
 call plug#begin()
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
-
 
 " Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -266,11 +253,6 @@ Plug 'airblade/vim-gitgutter'
 " Buffer line
 Plug 'bling/vim-bufferline'
 
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'mattn/vim-lsp-settings'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Floating terminal
@@ -279,15 +261,7 @@ Plug 'voldikss/vim-floaterm'
 " Comment 
 Plug 'tpope/vim-commentary'
 
-
 " Paranthesis matching
 Plug 'jiangmiao/auto-pairs'
 
-" Initialize plugin system
-" - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
-" You can revert the settings after the call like so:
-"   filetype indent off   " Disable file-type-specific indentation
-"   syntax off            " Disable syntax highlighting
-
-
