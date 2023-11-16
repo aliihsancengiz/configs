@@ -92,10 +92,6 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 " Commenting
 nnoremap <C-c> :Commentary<CR>
@@ -266,4 +262,8 @@ Plug 'jiangmiao/auto-pairs'
 
 " Vim Git tool
 Plug 'tpope/vim-fugitive'
+
+" See content of registers in sidebar
+Plug 'junegunn/vim-peekaboo'
+
 call plug#end()

@@ -1,3 +1,7 @@
+working_directory: /home/ali/Workspace 
+shell:
+  program: /usr/bin/tmux
+
 window:
 
   # Window padding (changes require restart)
@@ -32,9 +36,11 @@ window:
   startup_mode: Windowed
 
   # Background opacity
-  opacity: 0.90
+  opacity: 0.95
 
-
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  history: 10000
 
 # Colors (NightFox)
 colors:
@@ -86,5 +92,4 @@ mouse_bindings:
 
 
 
-shell:
-  program: /usr/bin/tmux
+
