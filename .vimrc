@@ -4,6 +4,7 @@ let mapleader="\<Space>"
 " line number and theme setup
 set encoding=UTF-8
 colorscheme anotherdark
+set relativenumber
 set number
 
 " *** Search Option ***
@@ -122,6 +123,8 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 " " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
+" Show only line info
+let g:airline_section_z = '%3l/%L'
 
 """ Nerdtree i START
 nnoremap <C-n> :NERDTree<CR>
@@ -262,4 +265,6 @@ Plug 'tpope/vim-commentary'
 " Paranthesis matching
 Plug 'jiangmiao/auto-pairs'
 
+" Vim Git tool
+Plug 'tpope/vim-fugitive'
 call plug#end()
