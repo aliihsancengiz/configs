@@ -1,11 +1,14 @@
 "Leader
 let mapleader="\<Space>"
 
+colorscheme anotherdark
+
 " line number and theme setup
 set encoding=UTF-8
-colorscheme anotherdark
 set relativenumber
 set number
+set signcolumn=no
+
 
 " *** Search Option ***
 set smartcase
@@ -161,10 +164,6 @@ nnoremap <C-g> :Ag<Cr>
 
 
 " COC - START
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
