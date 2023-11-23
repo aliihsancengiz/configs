@@ -9,7 +9,6 @@ set relativenumber
 set number
 set signcolumn=no
 
-
 " *** Search Option ***
 set smartcase
 set ignorecase
@@ -18,24 +17,13 @@ set hlsearch
 set incsearch
 " set nohlsearch
 
-" Ctrl+h to stop searching
-vnoremap <C-h> :nohlsearch<cr>
-nnoremap <C-h> :nohlsearch<cr>
+" Ctrl+i to stop searching
+vnoremap <C-y> :nohlsearch<cr>
+nnoremap <C-y> :nohlsearch<cr>
 
 " save and quit gracefully
 nnoremap <leader>w :w<CR>
-nnoremap <leader>q :FloatermKill<CR>:q<CR>
-
-" Escape with Ctrl-l 
-nnoremap <c-l> <Esc>
-inoremap <c-l> <Esc>
-vnoremap <c-l> <Esc>
-snoremap <c-l> <Esc>
-xnoremap <c-l> <Esc>
-cnoremap <c-l> <C-c>
-onoremap <c-l> <Esc>
-lnoremap <c-l> <Esc>
-tnoremap <c-l> <Esc>
+nnoremap <leader>q :q<CR>
 
 " copy and paste from system clipboard
 noremap <Leader>y "*y
@@ -67,6 +55,17 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
+
+" *** Buffer change ***"
+imap <C-h> <Esc>:bprevious!<CR>
+imap <C-l> <Esc>:bnext!<CR>
+
+vmap <C-l> <Esc>:bnext!<CR>
+vmap <C-h> <Esc>:bprevious!<CR>
+
+nmap <C-l> <Esc>:bnext!<CR>
+nmap <C-h> <Esc>:bprevious!<CR>
+
 " #Better tab experience - from https://webdevetc.com/
 map <leader>tn :tabnew<CR>
 map <leader>t<leader> :tabnext<CR>
@@ -74,6 +73,18 @@ map <leader>tm :tabmove<CR>
 map <leader>tc :tabclose<CR>
 map <leader>to :tabonly<CR>
 
+" gv bindings
+nnoremap <Leader>gs :Git<CR>:resize 20<CR>
+nnoremap <Leader>gl :GV<CR>
+nnoremap <Leader>gL :GV!<CR>
+nnoremap <Leader>gb :Git blame<CR>
+nnoremap <Leader>gd :Gdiffsplit<CR>
+nnoremap <Leader>gp :copen<CR><C-w>p:AsyncRun git push<CR>
+nnoremap <Leader>go :Git checkout -b 
+nnoremap <Leader>gc :Git commit --amend -a
+nnoremap <Leader>gr :GitGutterUndoHunk<CR>
+nnoremap <Leader>gi :vnew<CR>:term glab ci status --compact --live<CR><C-W>K:resize30<CR>
+nnoremap <Leader>gt :new<CR>:term glab ci trace<CR><C-W>J:resize20<CR>
 
 " Moving between panes
 nnoremap <leader>h <C-w>h
@@ -87,21 +98,35 @@ nnoremap <leader>v :vs<CR>
 nnoremap < :vertical resize +5<CR>
 nnoremap > :vertical resize -5<CR>
 
-" No arrow keys --- force yourself to use the home row
+" Escape like saro
+inoremap jj <Esc>
+cnoremap jj <C-C><Esc>
+
+" *** Better History navigation ***
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+
+"No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Move faster
+map K 10k
+map J 10j
 
 " Commenting
 nnoremap <C-c> :Commentary<CR>
 vnoremap <C-c> :Commentary<CR>
-
-" floating terminal
-let g:floaterm_keymap_new = '<F7>'
-let g:floaterm_keymap_prev   = '<F8>'
-let g:floaterm_keymap_next   = '<F9>'
-let g:floaterm_keymap_toggle = '<C-\>'
 
 " Syntac highlighting
 let g:cpp_class_scope_highlight = 1
@@ -251,9 +276,6 @@ Plug 'bling/vim-bufferline'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Floating terminal
-Plug 'voldikss/vim-floaterm'
-
 " Comment 
 Plug 'tpope/vim-commentary'
 
@@ -265,5 +287,7 @@ Plug 'tpope/vim-fugitive'
 
 " See content of registers in sidebar
 Plug 'junegunn/vim-peekaboo'
+
+Plug 'junegunn/gv.vim'
 
 call plug#end()
