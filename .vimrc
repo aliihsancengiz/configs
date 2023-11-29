@@ -17,6 +17,10 @@ set hlsearch
 set incsearch
 " set nohlsearch
 
+" Tab and space indicators
+set list
+set listchars=tab:→\ ,trail:•,extends:#,nbsp:.
+
 " Ctrl+i to stop searching
 vnoremap <C-y> :nohlsearch<cr>
 nnoremap <C-y> :nohlsearch<cr>
@@ -123,6 +127,8 @@ inoremap <right> <nop>
 " Move faster
 map K 10k
 map J 10j
+map H ^
+map L $
 
 " Commenting
 nnoremap <C-c> :Commentary<CR>
@@ -140,15 +146,16 @@ let g:cpp_no_function_highlight = 1
 
 " Formatting
 nmap <Leader>C :ClangFormatAutoToggle<CR>
-autocmd FileType c,cpp ClangFormatAutoEnable
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType cpp ClangFormatAutoEnable
+autocmd FileType cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Show only line info
 let g:airline_section_z = '%3l/%L'
+
 
 """ Nerdtree i START
 nnoremap <C-n> :NERDTree<CR>
@@ -179,10 +186,9 @@ nnoremap <C-p> :GFiles<CR>
 "Search with Ag
 nnoremap <C-g> :Ag<Cr>
 
+" Search word under cursor
+nnoremap <C-w> :Ag <C-R><C-W><CR> 
 """ Fzf - END
-
-
-
 
 " COC - START
 
@@ -289,5 +295,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-peekaboo'
 
 Plug 'junegunn/gv.vim'
+
+Plug 'itchyny/calendar.vim'
+
 
 call plug#end()
