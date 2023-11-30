@@ -294,9 +294,10 @@ Plug 'tpope/vim-fugitive'
 " See content of registers in sidebar
 Plug 'junegunn/vim-peekaboo'
 
+" Git integration
 Plug 'junegunn/gv.vim'
 
-Plug 'itchyny/calendar.vim'
-
+" Tag manager
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
