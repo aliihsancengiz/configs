@@ -239,6 +239,7 @@ let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 " COC - END
 
 
+
 call plug#begin()
 
 " Multiple Plug commands can be written in a single line using | separators
@@ -299,5 +300,8 @@ Plug 'junegunn/gv.vim'
 
 " Tag manager
 Plug 'ludovicchabant/vim-gutentags'
+
+" Conflict solving helper
+Plug 'rhysd/conflict-marker.vim'
 
 call plug#end()
