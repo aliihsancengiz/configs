@@ -71,11 +71,11 @@ nmap <C-l> <Esc>:bnext!<CR>
 nmap <C-h> <Esc>:bprevious!<CR>
 
 " #Better tab experience - from https://webdevetc.com/
-map <leader>tn :tabnew<CR>
-map <leader>t<leader> :tabnext<CR>
-map <leader>tm :tabmove<CR>
-map <leader>tc :tabclose<CR>
-map <leader>to :tabonly<CR>
+"map <leader>tn :tabnew<CR>
+"map <leader>t<leader> :tabnext<CR>
+"map <leader>tm :tabmove<CR>
+"map <leader>tc :tabclose<CR>
+"map <leader>to :tabonly<CR>
 
 " gv bindings
 nnoremap <Leader>gs :Git<CR>:resize 20<CR>
@@ -155,6 +155,17 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Show only line info
 let g:airline_section_z = '%3l/%L'
+
+" TagBar
+nnoremap <leader>t :Tagbar<CR>
+autocmd FileType tagbar setlocal nocursorline nocursorcolumn
+autocmd FileType tagbar nnoremap <buffer> <C-l> <nop>
+autocmd FileType tagbar nnoremap <buffer> <C-h> <nop>
+autocmd FileType tagbar nnoremap <buffer> <Space> <nop>
+autocmd FileType tagbar nnoremap <buffer> <leader>h <C-w>h
+autocmd FileType tagbar nnoremap <buffer> <leader>j <C-w>j
+autocmd FileType tagbar nnoremap <buffer> <leader>k <C-w>k
+autocmd FileType tagbar nnoremap <buffer> <leader>l <C-w>l
 
 
 """ Nerdtree i START
@@ -305,5 +316,8 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Conflict solving helper
 Plug 'rhysd/conflict-marker.vim'
+
+" Tagbar
+Plug 'preservim/tagbar'
 
 call plug#end()
