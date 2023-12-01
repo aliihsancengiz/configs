@@ -158,9 +158,7 @@ let g:airline_section_z = '%3l/%L'
 
 
 """ Nerdtree i START
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 let NERDTreeMapOpenInTab='\r'
 let NERDTreeShowHidden=1
@@ -184,10 +182,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nnoremap <C-p> :GFiles<CR>
 
 "Search with Ag
-nnoremap <C-g> :Ag<Cr>
+nnoremap <C-g> :Ag<CR>
+
+" Search all files
+nnoremap <C-f> :Files<CR>
 
 " Search word under cursor
 nnoremap <C-w> :Ag <C-R><C-W><CR> 
+
 """ Fzf - END
 
 " COC - START
