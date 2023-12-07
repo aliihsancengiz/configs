@@ -60,6 +60,7 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
 
+
 " *** Buffer change ***"
 imap <C-h> <Esc>:bprevious!<CR>
 imap <C-l> <Esc>:bnext!<CR>
@@ -146,7 +147,7 @@ let g:cpp_no_function_highlight = 1
 
 " Formatting
 nmap <Leader>C :ClangFormatAutoToggle<CR>
-autocmd FileType cpp ClangFormatAutoEnable
+" autocmd FileType cpp ClangFormatAutoEnable
 autocmd FileType cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
@@ -157,7 +158,7 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 let g:airline_section_z = '%3l/%L'
 
 " TagBar
-nnoremap <leader>t :Tagbar<CR>
+nnoremap <leader>t :TagbarOpen fj<CR>
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 autocmd FileType tagbar nnoremap <buffer> <C-l> <nop>
 autocmd FileType tagbar nnoremap <buffer> <C-h> <nop>
@@ -169,7 +170,7 @@ autocmd FileType tagbar nnoremap <buffer> <leader>l <C-w>l
 
 
 """ Nerdtree i START
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 
 let NERDTreeMapOpenInTab='\r'
 let NERDTreeShowHidden=1
