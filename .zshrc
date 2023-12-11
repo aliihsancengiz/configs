@@ -31,7 +31,7 @@ alias lS='exa -1'                                                      # one col
 alias lt='exa --tree --level=2'                                        # tree
 
 export PATH="$HOME/.local/bin:$PATH"
-
+eval "$(zoxide init zsh)"
 
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 

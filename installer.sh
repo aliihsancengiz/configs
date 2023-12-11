@@ -5,7 +5,7 @@ apt update
 
 install_base(){
 	apt install build-essential pkg-config git cmake python3 gcc g++ openssl clang clang-format wget curl openssh-server valgrind net-tools \
-		wireshark jq btop ranger
+		wireshark jq btop ranger zoxide
 	systemctl enable ssh --now
 }
 
