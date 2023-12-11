@@ -15,11 +15,21 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-alias pp="~/scripts/tmux_session_loader.sh profitap"
-alias sr="~/scripts/tmux_session_loader.sh rusts"
 alias dk="docker"
 alias e="ranger"
-export PROFITAP_DEPLOYMENT_TYPE=dev
+
+# general use
+alias ls='exa'                                                         # ls
+alias l='exa -lbF'                                               # list, size, type, git
+alias ll='exa -lbGF'                                             # long list
+alias llm='exa -lbGF --sort=modified'                            # long list, modified date sort
+alias la='exa -lbhHigUmuSa --time-style=long-iso --color-scale'  # all list
+alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale' # all + extended list
+
+# speciality views
+alias lS='exa -1'                                                      # one column, just names
+alias lt='exa --tree --level=2'                                        # tree
+
 export PATH="$HOME/.local/bin:$PATH"
 
 
