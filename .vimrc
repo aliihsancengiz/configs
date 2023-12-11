@@ -59,7 +59,8 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
-
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
 
 " *** Buffer change ***"
 imap <C-h> <Esc>:bprevious!<CR>

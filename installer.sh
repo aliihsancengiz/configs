@@ -5,14 +5,14 @@ apt update
 
 install_base(){
 	apt install build-essential pkg-config git cmake python3 gcc g++ openssl clang clang-format wget curl openssh-server valgrind net-tools \
-		wireshark jq
+		wireshark jq btop ranger
 	systemctl enable ssh --now
 }
 
 
 install_dev(){
 	add-apt-repository ppa:jonathonf/vim
-	apt install zsh vim tmux fonts-powerline bear
+	apt install zsh vim tmux fonts-powerline bear exa
 
 	# install fzf
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -29,7 +29,7 @@ install_dev(){
 	curl -sL install-node.vercel.app/lts | bash
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 	# nertfonts
 	mkdir -p ~/.config
