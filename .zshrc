@@ -16,6 +16,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias dk="docker"
 alias e="ranger"
+alias fp="ps -ea | fzf"
+
 
 # general use
 alias ls='exa'                                                         # ls
@@ -24,8 +26,6 @@ alias ll='exa -lbGF'                                             # long list
 alias llm='exa -lbGF --sort=modified'                            # long list, modified date sort
 alias la='exa -lbhHigUmuSa --time-style=long-iso --color-scale'  # all list
 alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale' # all + extended list
-
-# speciality views
 alias lS='exa -1'                                                      # one column, just names
 alias lt='exa --tree --level=2'                                        # tree
 
