@@ -7,7 +7,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 plugins=(
-	git
 	zsh-autosuggestions
 	sudo
 )
@@ -30,7 +29,16 @@ alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale' # all + extende
 alias lS='exa -1'                                                      # one column, just names
 alias lt='exa --tree --level=2'                                        # tree
 
-alias cb='~/configs/scripts/helper.sh checkout_branch'
+# some git alias
+alias gsb='~/configs/scripts/helper.sh checkout_branch'
+alias gst='git status'
+alias gl='git log'
+alias gf='git fetch --prune'
+alias gp='git pull'
+alias gd='git diff'
+alias ga='git add'
+
+
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
 
