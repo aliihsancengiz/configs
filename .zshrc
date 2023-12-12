@@ -30,6 +30,7 @@ alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale' # all + extende
 alias lS='exa -1'                                                      # one column, just names
 alias lt='exa --tree --level=2'                                        # tree
 
+alias cb='~/configs/scripts/helper.sh checkout_branch'
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
 
