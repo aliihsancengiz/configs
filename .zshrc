@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 alias dk="docker"
 alias e="ranger"
 alias fp="ps -ea | fzf"
-
+alias cr="~/configs/scripts/helper.sh connect_remote"
 
 # general use
 alias ls='exa'                                                         # ls
