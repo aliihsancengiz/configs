@@ -42,3 +42,5 @@ install_dev(){
 	~/.config/nerd-fonts/install.sh Hack-NF
 	~/.config/nerd-fonts/install.sh Ubuntu
 }
+
+eval "$@"

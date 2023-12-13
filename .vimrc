@@ -194,14 +194,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Search in Git files
 nnoremap <C-p> :GFiles<CR>
 
-"Search with Ag
-nnoremap <C-g> :Ag<CR>
+"Search with Rg
+nnoremap <C-g> :Rg<CR>
 
 " Search all files
 nnoremap <C-f> :Files<CR>
 
 " Search word under cursor
-nnoremap <C-w> :Ag <C-R><C-W><CR> 
+nnoremap <C-s> :Rg <C-R><C-W><CR> 
 
 """ Fzf - END
 
