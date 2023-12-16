@@ -89,8 +89,8 @@ nnoremap <Leader>gp :copen<CR><C-w>p:AsyncRun git push<CR>
 nnoremap <Leader>go :Git checkout -b 
 nnoremap <Leader>gc :Git commit --amend -a
 nnoremap <Leader>gr :GitGutterUndoHunk<CR>
-nnoremap <Leader>gi :vnew<CR>:term glab ci status --compact --live<CR><C-W>K:resize30<CR>
-nnoremap <Leader>gt :new<CR>:term glab ci trace<CR><C-W>J:resize20<CR>
+nnoremap <Leader>gi :vnew<CR>:term glab ci status --compact --live<CR><C-W>K<CR>
+nnoremap <Leader>gt :new<CR>:term glab ci trace<CR><C-W>J
 
 " Moving between panes
 nnoremap <leader>h <C-w>h
@@ -159,7 +159,7 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 let g:airline_section_z = '%3l/%L'
 
 " TagBar
-nnoremap <leader>t :TagbarOpen fj<CR>
+nnoremap <leader>t :TagbarOpenAutoClose<CR>
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 autocmd FileType tagbar nnoremap <buffer> <C-l> <nop>
 autocmd FileType tagbar nnoremap <buffer> <C-h> <nop>
