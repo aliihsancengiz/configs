@@ -42,6 +42,7 @@ alias gd='git diff'
 alias ga='git add'
 
 export PATH="$HOME/.local/bin:$PATH"
+export TERM=xterm-256color
 eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
