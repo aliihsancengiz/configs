@@ -40,6 +40,7 @@ alias gf='git fetch --prune'
 alias gp='git pull'
 alias gd='git diff'
 alias ga='git add'
+alias v='vim'
 
 export PATH="$HOME/.local/bin:$PATH"
 export TERM=xterm-256color
