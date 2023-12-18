@@ -1,13 +1,15 @@
 "Leader
 let mapleader="\<Space>"
 
-colorscheme anotherdark
+syntax on
+colorscheme onedark
 
 " line number and theme setup
 set encoding=UTF-8
 set relativenumber
 set number
 set signcolumn=no
+set termguicolors
 
 " *** Search Option ***
 set smartcase
@@ -321,5 +323,7 @@ Plug 'rhysd/conflict-marker.vim'
 
 " Tagbar
 Plug 'preservim/tagbar'
+
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
