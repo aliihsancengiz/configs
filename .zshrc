@@ -44,6 +44,9 @@ alias v='nvim'
 alias nv='nvim'
 alias vim='nvim'
 
+alias uc="~/configs/scripts/update_configs.sh update_configs"
+alias ic="~/configs/scripts/update_configs.sh install_configs"
+
 export PATH="$HOME/.local/bin:$PATH"
 export TERM=xterm-256color
 eval "$(zoxide init zsh)"
