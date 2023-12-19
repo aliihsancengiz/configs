@@ -13,6 +13,7 @@ install_base(){
 install_dev(){
 	add-apt-repository ppa:jonathonf/vim
 	apt install zsh vim tmux fonts-powerline bear exa
+	snap install nvim --classic
 
 	# install fzf
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -23,7 +24,9 @@ install_dev(){
 
 	# vim plugin
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	
+	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'	
+
 	# oh my zsh install
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	curl -sL install-node.vercel.app/lts | bash
