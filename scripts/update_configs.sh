@@ -5,9 +5,9 @@
 function update_configs()
 {
 	# nvim configs update
-	mkdir -p ~/configs/config/nvim/lua
-	cp ~/.config/nvim/init.vim ~/configs/config/nvim 
-	cp ~/.config/nvim/lua/init.lua ~/configs/config/nvim/lua/init.lua
+	# mkdir -p ~/configs/config/nvim/lua
+	# cp ~/.config/nvim/init.vim ~/configs/config/nvim 
+	# cp ~/.config/nvim/lua/init.lua ~/configs/config/nvim/lua/init.lua
 
 	#vim config update
 	cp ~/.vimrc ~/configs/.vimrc
@@ -26,9 +26,9 @@ function update_configs()
 function install_configs()
 {
 	# nvim configs install
-	mkdir -p ~/.config/nvim/lua
-	cp ~/configs/config/nvim/init.vim ~/.config/nvim/init.vim
-	cp ~/configs/config/nvim/lua/init.lua ~/.config/nvim/lua/init.lua
+	# mkdir -p ~/.config/nvim/lua
+	# cp ~/configs/config/nvim/init.vim ~/.config/nvim/init.vim
+	# cp ~/configs/config/nvim/lua/init.lua ~/.config/nvim/lua/init.lua
 
 	# install vim configs
 	cp ~/configs/.vimrc ~/.vimrc

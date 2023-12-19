@@ -13,7 +13,7 @@ install_base(){
 install_dev(){
 	add-apt-repository ppa:jonathonf/vim
 	apt install zsh vim tmux fonts-powerline bear exa lua5.3
-	snap install nvim --classic
+	# snap install nvim --classic
 
 	# install fzf
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -22,10 +22,12 @@ install_dev(){
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 	cargo install alacritty
 
-	# vim plugin
+	# vim and neovim plugin manager
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'	
+	# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+	# https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'	
+	# git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+	# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 	# oh my zsh install
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

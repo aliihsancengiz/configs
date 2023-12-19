@@ -40,9 +40,9 @@ alias gf='git fetch --prune'
 alias gp='git pull'
 alias gd='git diff'
 alias ga='git add'
-alias v='nvim'
-alias nv='nvim'
-alias vim='nvim'
+alias v='vim'
+alias nv='vim'
+alias vim='vim'
 
 alias uc="~/configs/scripts/update_configs.sh update_configs"
 alias ic="~/configs/scripts/update_configs.sh install_configs"
