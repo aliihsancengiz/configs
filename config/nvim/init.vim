@@ -323,7 +323,8 @@ Plug 'rhysd/conflict-marker.vim'
 " Tagbar
 Plug 'preservim/tagbar'
 
-Plug 'joshdick/onedark.vim'
-
+" Themes
+Plug 'olimorris/onedarkpro.nvim'
 call plug#end()
-colorscheme onedark
+" colorscheme onedark
+lua require('init')

@@ -12,7 +12,7 @@ install_base(){
 
 install_dev(){
 	add-apt-repository ppa:jonathonf/vim
-	apt install zsh vim tmux fonts-powerline bear exa
+	apt install zsh vim tmux fonts-powerline bear exa lua5.3
 	snap install nvim --classic
 
 	# install fzf
