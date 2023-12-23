@@ -1,5 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -47,17 +47,18 @@ alias vim='vim'
 alias uc="~/configs/scripts/update_configs.sh update_configs"
 alias ic="~/configs/scripts/update_configs.sh install_configs"
 
+export PATH=$PATH:~/.cargo/bin/
 export PATH="$HOME/.local/bin:$PATH"
 export TERM=xterm-256color
 eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

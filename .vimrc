@@ -2,7 +2,7 @@
 let mapleader="\<Space>"
 
 syntax on
-colorscheme onedark
+colorscheme catppuccin_mocha
 
 " line number and theme setup
 set encoding=UTF-8
@@ -32,7 +32,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
 " copy and paste from system clipboard
-noremap <Leader>y "*y
+noremap <leader>y "*y
 nnoremap <leader>p "+gp
 vnoremap <leader>y "+y
 
@@ -324,6 +324,5 @@ Plug 'rhysd/conflict-marker.vim'
 " Tagbar
 Plug 'preservim/tagbar'
 
-Plug 'joshdick/onedark.vim'
-
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
