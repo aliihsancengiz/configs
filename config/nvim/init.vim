@@ -48,7 +48,7 @@ nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>c :bdelete<CR>
+nnoremap <Leader>c :Bdelete<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -182,10 +182,10 @@ autocmd BufEnter NERD_tree_* | execute 'normal R'
 au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 "
 " "Reload the window if directory is changed
-augroup DIRCHANGE
-   au!
-   autocmd DirChanged global :NERDTreeCWD
-augroup END
+" augroup DIRCHANGE
+"    au!
+"    autocmd DirChanged global :NERDTreeCWD
+" augroup END
 
 "Close nerdtree automatically if it is theonly window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -255,6 +255,8 @@ let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 " COC - END
 
 
+" Markdown preview toggle
+nmap <C-m> <Plug>MarkdownPreviewToggle
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -323,8 +325,16 @@ Plug 'rhysd/conflict-marker.vim'
 " Tagbar
 Plug 'preservim/tagbar'
 
-" Themes
-Plug 'olimorris/onedarkpro.nvim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
+Plug 'moll/vim-bbye'
+
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'tpope/vim-surround'
+
 call plug#end()
 " colorscheme onedark
 lua require('init')

@@ -1,5 +1,5 @@
-# Initialization code that may require console input (password prompts, [y/n]
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -12,6 +12,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	zsh-autosuggestions
 	sudo
+	forgit
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -40,9 +41,16 @@ alias gf='git fetch --prune'
 alias gp='git pull'
 alias gd='git diff'
 alias ga='git add'
-alias v='vim'
-alias nv='vim'
-alias vim='vim'
+alias v='nvim'
+alias nv='nvim'
+alias vim='nvim'
+
+alias aryassh="ssh arya@192.168.23.205 -p 2216"
+alias walterssh=" ssh walter@192.168.23.205 -p 2215"
+alias wintersssh=" ssh winters@192.168.23.205 -p 2207"
+alias snapessh=" ssh snape@192.168.23.205 -p 2208"
+alias scofieldssh=" ssh scofield@192.168.23.205 -p 2206"
+alias couscousssh=" ssh couscous@192.168.23.205 -p 2204"
 
 alias uc="~/configs/scripts/update_configs.sh update_configs"
 alias ic="~/configs/scripts/update_configs.sh install_configs"
@@ -59,6 +67,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k.zsh-theme
 source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/forgit/forgit.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

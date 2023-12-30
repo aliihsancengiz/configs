@@ -2,7 +2,6 @@
 let mapleader="\<Space>"
 
 syntax on
-colorscheme catppuccin_mocha
 
 " line number and theme setup
 set encoding=UTF-8
@@ -49,7 +48,7 @@ nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>c :bdelete<CR>
+nnoremap <Leader>c :Bdelete<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -255,6 +254,8 @@ let g:lsp_document_highlight_enabled = 0
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 " COC - END
 
+" Markdown preview toggle
+nmap <C-m> <Plug>MarkdownPreviewToggle
 
 
 call plug#begin()
@@ -325,4 +326,11 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/tagbar'
 
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
+Plug 'moll/vim-bbye'
+
 call plug#end()
+
+colorscheme catppuccin_mocha
