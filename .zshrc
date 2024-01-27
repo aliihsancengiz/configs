@@ -45,13 +45,6 @@ alias v='nvim'
 alias nv='nvim'
 alias vim='nvim'
 
-alias aryassh="ssh arya@192.168.23.205 -p 2216"
-alias walterssh=" ssh walter@192.168.23.205 -p 2215"
-alias wintersssh=" ssh winters@192.168.23.205 -p 2207"
-alias snapessh=" ssh snape@192.168.23.205 -p 2208"
-alias scofieldssh=" ssh scofield@192.168.23.205 -p 2206"
-alias couscousssh=" ssh couscous@192.168.23.205 -p 2204"
-
 alias uc="~/configs/scripts/update_configs.sh update_configs"
 alias ic="~/configs/scripts/update_configs.sh install_configs"
 
