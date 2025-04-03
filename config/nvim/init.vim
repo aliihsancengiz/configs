@@ -74,11 +74,11 @@ nmap <C-l> <Esc>:bnext!<CR>
 nmap <C-h> <Esc>:bprevious!<CR>
 
 " #Better tab experience - from https://webdevetc.com/
-"map <leader>tn :tabnew<CR>
-"map <leader>t<leader> :tabnext<CR>
-"map <leader>tm :tabmove<CR>
-"map <leader>tc :tabclose<CR>
-"map <leader>to :tabonly<CR>
+map <leader>tn :tabnew<CR>
+map <leader>t<leader> :tabnext<CR>
+map <leader>tm :tabmove<CR>
+map <leader>tc :tabclose<CR>
+map <leader>to :tabonly<CR>
 
 " gv bindings
 nnoremap <Leader>gs :Git<CR>:resize 20<CR>
@@ -92,6 +92,18 @@ nnoremap <Leader>gc :Git commit --amend -a
 nnoremap <Leader>gr :GitGutterUndoHunk<CR>
 nnoremap <Leader>gi :vnew<CR>:term glab ci status --compact --live<CR><C-W>K<CR>
 nnoremap <Leader>gt :new<CR>:term glab ci trace<CR><C-W>J
+
+" Folding
+filetype plugin indent on " required
+syntax on                 " required
+
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+
+set foldlevel=0  " close all folds
+" or
+set foldlevel=99 " Open all folds
+
+cnoreabbrev E Explore
 
 " Moving between panes
 nnoremap <leader>h <C-w>h
@@ -155,6 +167,7 @@ autocmd FileType cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set laststatus=2 statusline=%02n:%<%f\ %P
 
 " Show only line info
 let g:airline_section_z = '%3l/%L'
@@ -170,26 +183,8 @@ autocmd FileType tagbar nnoremap <buffer> <leader>j <C-w>j
 autocmd FileType tagbar nnoremap <buffer> <leader>k <C-w>k
 autocmd FileType tagbar nnoremap <buffer> <leader>l <C-w>l
 
-
-""" Nerdtree i START
-nnoremap <C-t> :NERDTreeToggle<CR>
-
-let NERDTreeMapOpenInTab='\r'
-let NERDTreeShowHidden=1
-
-" " Refresh the current folder if any changes
-autocmd BufEnter NERD_tree_* | execute 'normal R'
-au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
-"
-" "Reload the window if directory is changed
-" augroup DIRCHANGE
-"    au!
-"    autocmd DirChanged global :NERDTreeCWD
-" augroup END
-
-"Close nerdtree automatically if it is theonly window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-""" Nerdtree - END
+" ignore on search
+set wildignore=*/build/*
 
 """ Fzf - START
 " Search in Git files
@@ -267,7 +262,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
+" fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Syntax highlighting
@@ -317,7 +312,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
 
 " Tag manager
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Conflict solving helper
 Plug 'rhysd/conflict-marker.vim'
@@ -335,6 +330,10 @@ Plug 'neovim/nvim-lspconfig'
 
 Plug 'tpope/vim-surround'
 
+Plug 'will133/vim-dirdiff'
+
+Plug 'pseewald/vim-anyfold'
 call plug#end()
 " colorscheme onedark
 lua require('init')
+

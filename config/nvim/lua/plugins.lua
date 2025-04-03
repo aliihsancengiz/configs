@@ -8,4 +8,8 @@ return require('packer').startup(function(use)
 	  branch = "harpoon2",
 	  requires = { {"nvim-lua/plenary.nvim"} }
   }
+  -- use 'williamboman/mason.nvim'
+  -- use 'williamboman/mason-lspconfig.nvim'
+  -- use 'neovim/nvim-lspconfig' 
+  -- use 'simrat39/rust-tools.nvim'
 end)
